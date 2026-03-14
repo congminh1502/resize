@@ -58,6 +58,13 @@ export default function Home() {
         {activeTab === 'free' && <FreeResizeTab />}
         {activeTab === 'block' && <BlockResizeTab />}
       </div>
+
+      {/* Footer */}
+      <div className="text-center mt-12 pt-8 border-t border-zinc-800/50">
+        <p className="text-sm text-zinc-500">
+          Made by <span className="text-zinc-400 font-medium hover:text-blue-400 transition-colors cursor-pointer">cole_minh</span>
+        </p>
+      </div>
     </main>
   );
 }
