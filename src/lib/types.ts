@@ -30,3 +30,28 @@ export interface Preset {
   createdAt?: string;
   updatedAt?: string;
 }
+
+// Part 3: Block-based Resize
+export interface P3OutputSize {
+  width: number;
+  height: number;
+}
+
+export interface SizePreset {
+  id: string;
+  name: string;
+  sizes: P3OutputSize[];
+  authorName?: string;
+  type: 'shared' | 'local';
+}
+
+export interface ResizeBlock {
+  id: string;
+  inputImage?: File;
+  previewUrl?: string;
+  originalDim?: { width: number; height: number };
+  outputs: P3OutputSize[];
+  fitMode: 'contain_with_background' | 'contain_no_background' | 'cover_crop';
+  align: 'center' | 'left' | 'right';
+  bgColor: string;
+}

@@ -3,9 +3,10 @@
 import { useState } from 'react';
 import PresetResizeTab from '../components/PresetResizeTab';
 import FreeResizeTab from '../components/FreeResizeTab';
+import BlockResizeTab from '../components/BlockResizeTab';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'preset' | 'free'>('preset');
+  const [activeTab, setActiveTab] = useState<'preset' | 'free' | 'block'>('preset');
 
   return (
     <main className="max-w-5xl mx-auto px-4 py-12 md:py-20">
@@ -39,12 +40,23 @@ export default function Home() {
           >
             Free Resize
           </button>
+          <button
+            onClick={() => setActiveTab('block')}
+            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${activeTab === 'block'
+              ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/40'
+              : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5'
+              }`}
+          >
+            Block Resize
+          </button>
         </div>
       </div>
 
       {/* Tab Content */}
       <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-        {activeTab === 'preset' ? <PresetResizeTab /> : <FreeResizeTab />}
+        {activeTab === 'preset' && <PresetResizeTab />}
+        {activeTab === 'free' && <FreeResizeTab />}
+        {activeTab === 'block' && <BlockResizeTab />}
       </div>
     </main>
   );
