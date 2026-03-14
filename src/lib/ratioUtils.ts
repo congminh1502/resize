@@ -48,8 +48,8 @@ export function groupOutputsByRatio(outputs: OutputSize[]): Record<RatioKey, Out
 // Helper to format a friendly ratio label like 16:9 instead of 1920:1080
 export function normalizeRatioLabel(width: number, height: number): string {
     const divisor = gcd(width, height);
-    let rw = width / divisor;
-    let rh = height / divisor;
+    const rw = width / divisor;
+    const rh = height / divisor;
 
     // Handle some common marketing ratios like 1.91:1 which don't simplify cleanly with GCD
     const ratioNum = width / height;

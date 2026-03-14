@@ -18,7 +18,7 @@ export async function fetchBlockPresets(): Promise<SizePreset[]> {
     if (!data) return [];
 
     // Map database rows to SizePreset objects
-    return data.map((row: any) => ({
+    return data.map((row: { id: string, name: string, sizes: {width: number, height: number}[], author_name: string }) => ({
         id: row.id,
         name: row.name,
         type: 'shared', // Explicitly set type to shared for now
@@ -27,7 +27,7 @@ export async function fetchBlockPresets(): Promise<SizePreset[]> {
     }));
 }
 
-export async function saveBlockPreset(name: string, authorName: string, sizes: any[]): Promise<SizePreset | null> {
+export async function saveBlockPreset(name: string, authorName: string, sizes: {width: number, height: number}[]): Promise<SizePreset | null> {
     const { data, error } = await supabase
         .from(TABLE_NAME)
         .insert([{
@@ -54,7 +54,7 @@ export async function saveBlockPreset(name: string, authorName: string, sizes: a
     };
 }
 
-export async function updateBlockPreset(id: string, name: string, authorName: string, sizes: any[]): Promise<SizePreset | null> {
+export async function updateBlockPreset(id: string, name: string, authorName: string, sizes: {width: number, height: number}[]): Promise<SizePreset | null> {
     const { data, error } = await supabase
         .from(TABLE_NAME)
         .update({

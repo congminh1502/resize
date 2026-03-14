@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, ChangeEvent } from 'react';
-import { ResizeBlock, P3OutputSize, SizePreset } from '../lib/types';
+import { ResizeBlock, SizePreset } from '../lib/types';
 import { readImageDimensions } from '../lib/imageUtils';
 import { Upload, X, Trash2, Plus, Target, AlignCenter, AlignLeft, AlignRight, Palette } from 'lucide-react';
 
@@ -165,7 +165,7 @@ export default function ResizeBlockCard({ block, index, onChange, onRemove, isFo
                             ].map(aln => (
                                 <button
                                     key={aln.id}
-                                    onClick={(e) => { e.stopPropagation(); onChange(block.id, { align: aln.id as any }); }}
+                                    onClick={(e) => { e.stopPropagation(); onChange(block.id, { align: aln.id as ResizeBlock['align'] }); }}
                                     className={`flex-1 flex items-center justify-center gap-1 py-1 text-[10px] font-medium rounded transition-all ${
                                         block.align === aln.id ? 'bg-zinc-700 text-white shadow-sm' : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800'
                                     }`}

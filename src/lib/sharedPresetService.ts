@@ -1,5 +1,5 @@
 import { supabase } from './supabaseClient';
-import { Preset } from './types';
+import { Preset, OutputSize, SourceBlock } from './types';
 
 // Supabase table name
 const TABLE_NAME = 'shared_presets';
@@ -18,7 +18,7 @@ export async function fetchSharedPresets(): Promise<Preset[]> {
     if (!data) return [];
 
     // Map database rows to Preset objects
-    return data.map((row: any) => ({
+    return data.map((row: { id: string, name: string, outputs: OutputSize[], source_blocks: SourceBlock[], author_name: string, created_at: string, updated_at: string }) => ({
         id: row.id,
         name: row.name,
         type: 'shared', // Explicitly set type to shared

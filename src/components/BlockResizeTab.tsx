@@ -267,7 +267,7 @@ export default function BlockResizeTab() {
                         <div className="flex flex-col gap-3">
                             <div className="text-sm text-zinc-400">
                                 Preset giúp lưu nhanh nhiều kích thước đầu ra để sử dụng lại cho các Job sau. Preset được chia sẻ chung cho mọi người. 
-                                Hãy chọn Preset tương ứng ở dropdown <span className="text-zinc-300 font-bold">"Load từ Preset"</span> bên trong từng thẻ Block bên dưới!
+                                Hãy chọn Preset tương ứng ở dropdown <span className="text-zinc-300 font-bold">&quot;Load từ Preset&quot;</span> bên trong từng thẻ Block bên dưới!
                             </div>
                             
                             <div className="flex gap-3 overflow-x-auto pb-2 custom-scrollbar">

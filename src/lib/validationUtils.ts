@@ -36,7 +36,7 @@ export function validateSourceUploads(
     return result;
 }
 
-export function canGenerateFullPack(validationResult: ValidationResult, preset: Preset, uploads: Record<string, any>): boolean {
+export function canGenerateFullPack(validationResult: ValidationResult, preset: Preset, uploads: Record<string, { file: File; width: number; height: number }>): boolean {
     if (!validationResult.isValid) return false;
 
     // Also check if all required blocks have uploads
